@@ -5,7 +5,7 @@
 import gym_super_mario_bros
 from gym.spaces import Box
 from gym import Wrapper
-from nes_py.wrappers import BinarySpaceToDiscreteSpaceEnv
+from nes_py.wrappers import JoypadSpace
 from gym_super_mario_bros.actions import SIMPLE_MOVEMENT, COMPLEX_MOVEMENT, RIGHT_ONLY
 import cv2
 import numpy as np
