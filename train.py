@@ -45,6 +45,7 @@ def train(opt):
     os.makedirs(opt.log_path)
     if not os.path.isdir(opt.saved_path):
         os.makedirs(opt.saved_path)
+    _mp.set_start_method('spawn')
     mp = _mp.get_context("spawn")
     env, num_states, num_actions = create_train_env(opt.world, opt.stage, opt.action_type)
     global_model = ActorCritic(num_states, num_actions)
