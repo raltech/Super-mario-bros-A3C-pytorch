@@ -39,6 +39,7 @@ def get_args():
 
 
 def train(opt):
+    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
     # torch.manual_seed(123)
     if os.path.isdir(opt.log_path):
         shutil.rmtree(opt.log_path)
