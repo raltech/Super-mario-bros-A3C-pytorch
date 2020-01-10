@@ -10,7 +10,7 @@ from src.env import create_train_env
 from src.model import ActorCritic
 from src.optimizer import GlobalAdam
 from src.process import local_train, local_test
-import torch.multiprocessing as _mp
+import torch.multiprocessing as mp
 import shutil
 
 
@@ -45,8 +45,8 @@ def train(opt):
     os.makedirs(opt.log_path)
     if not os.path.isdir(opt.saved_path):
         os.makedirs(opt.saved_path)
-    _mp.set_start_method('spawn')
-    mp = _mp.get_context("spawn")
+    mp.set_start_method('spawn')
+    # mp = _mp.get_context("spawn")
     env, num_states, num_actions = create_train_env(opt.world, opt.stage, opt.action_type)
     global_model = ActorCritic(num_states, num_actions)
     if opt.use_gpu:
